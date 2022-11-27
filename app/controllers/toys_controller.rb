@@ -14,6 +14,7 @@ class ToysController < ApplicationController
   def update
     toy = Toy.find_by(id: params[:id])
     toy.update(toy_params)
+    render json: toy
   end
 
   def destroy
@@ -23,7 +24,7 @@ class ToysController < ApplicationController
   end
 
   private
-  
+
   def toy_params
     params.permit(:name, :image, :likes)
   end
